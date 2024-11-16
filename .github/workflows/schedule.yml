@@ -3,7 +3,7 @@ name: Run main.py at 0:01 AM Beijing Time
 on:
   schedule:
     - cron: '1 16 * * *'  # 16:01 UTC就是北京时间0.01分
-  workflow_dispatch:  # 允许手动触发
+ # workflow_dispatch:  # 不允许手动触发
 
 jobs:
   run_script:
