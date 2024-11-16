@@ -152,4 +152,6 @@ if __name__ == '__main__' :
         requests.post(BARK_URL,data=data)
 
     except Exception as e:
+        data = {'body':f"汇总表格更新失败：{e}"}
+        requests.post(BARK_URL,data=data)
         print("汇总表格更新失败：", e)
