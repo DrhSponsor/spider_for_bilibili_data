@@ -2,12 +2,12 @@ name: Run main.py at 0:01 AM Beijing Time
 
 on:
   schedule:
-    - cron: '1 16 * * *'  # 16:01 UTC就是北京时间0.01分
- # workflow_dispatch:  # 不允许手动触发
+    - cron: '1 16 * * *'  # 16:01 UTC 就是北京时间 0:01
+  workflow_dispatch:  # 允许手动触发
 
 jobs:
   run_script:
-    runs-on: ubuntu-latest  # 使用最新版本的 Ubuntu 环境
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -15,11 +15,19 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'  # 指定 Python 版本
+          python-version: '3.9'
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt  # 如果有依赖项，确保安装它们
+          pip install -r requirements.txt
 
       - name: Run main.py
-        run: python ./main.py  # 指定 main.py 的路径
+        run: python ./main.py
+
+      - name: Commit and Push Generated Files
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add *.xlsx
+          git commit -m "Update data files [skip ci]"
+          git push
