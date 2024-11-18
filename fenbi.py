@@ -18,6 +18,10 @@ def get_fenbi():
                'sess':str(sess)}
     r = requests.get(url,cookies=cookies)
     if r.status_code != 200:
+        print("粉笔状态码",r.status_code)
+        print('粉笔访问错误')
         return '粉笔访问错误'
     data = json.loads(r.text)
-    return int(data["data"]["enrollList"][0]["enrollNumber"])
+    enrollCount = int(data["data"]["enrollList"][0]["enrollNumber"])
+    print('粉笔人数',enrollCount)
+    return enrollCount
