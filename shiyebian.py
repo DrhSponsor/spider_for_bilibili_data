@@ -11,6 +11,7 @@ def get_shiyebian():
         r = requests.get(url)
         # 检查请求状态
         if r.status_code != 200:
+            print('事业编错误码',r.status_code)
             return '事业编访问错误'
         # 设置编码为 GBK
         r.encoding = 'gbk'
@@ -38,6 +39,7 @@ def get_shiyebian():
                     next_row = next_row.find_next_sibling("tr")
                 # 找到后停止统计
                 break
+        print('事业编数量',count)
         return count
 
     except Exception as e:
