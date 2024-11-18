@@ -15,7 +15,7 @@ def get_tieba():
     num = bs(r.text, features='lxml').find(class_='card_infoNum').text
     # num是82,404 这样有逗号的
     num = int(num.replace(',',''))
-    print('贴吧人数',num)
+    print('贴吧帖数',num)
     return num
 
 if __name__ ==  '__main__':
