@@ -2,7 +2,7 @@ name: Run main.py at 0:01 AM Beijing Time
 
 on:
   schedule:
-    - cron: '1 16 * * *'  # 16:01 UTC 就是北京时间 0:01
+    - cron: '40 15 * * *'  # 16:01 UTC 就是北京时间 0:01
   workflow_dispatch:  # 允许手动触发
 
 jobs:
