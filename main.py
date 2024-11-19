@@ -68,9 +68,8 @@ if __name__ == '__main__' :
             file.write(str(bv_list))
 
     # 获取昨天的日期
-    # 由于美国运行的时候的时间是比中国晚一天 所以yesterday_date还要再减一天才是真实爬到的数据的天数
-    # 所以days = 2
-    yesterday_date = (datetime.datetime.now() - datetime.timedelta(days=2)).strftime("%Y%m%d")
+    # +8小时是因为东8区
+    yesterday_date = (datetime.datetime.now() - datetime.timedelta(days=1) + datetime.timedelta(hours=8)).strftime("%Y%m%d")
 
     # 原始数据文件名
     raw_filename = f"{yesterday_date}哔哩哔哩考公视频原始数据.xlsx"
