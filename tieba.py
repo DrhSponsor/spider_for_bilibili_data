@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup as bs
 url = "https://tieba.baidu.com/f"
 params = {
     "ie": "utf-8",
-    "kw": "考公",
+    "kw": "公务员",
     "fr": "search"
 }
 def get_tieba():
