@@ -18,7 +18,7 @@ def get_shiyebian():
         soup = BeautifulSoup(r.content, "html.parser")
 
         # 获取昨天的日期，格式为 "2024年11月25日"
-        yesterday = (datetime.now() - timedelta(days=1)).strftime("%Y年%m月%d日")
+        yesterday = (datetime.now() - timedelta(days=1) + timedelta(hours=8)).strftime("%Y年%m月%d日")
 
         # 查找所有的日期行
         date_rows = soup.find_all("tr", class_="box-head")
